@@ -6,7 +6,7 @@ Un entorno host proporciona objetos específicos de la plataforma y funciones ad
 
 Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en un navegador web:
 
-![Optional Text](../master/Selección_114.png)
+![Optional Text](../master/01-Browser-environment-specs/Selección_114.png)
 
 Hay un objeto "raíz" llamado `window`. Tiene dos roles:
 
