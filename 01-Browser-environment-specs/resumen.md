@@ -8,6 +8,13 @@ Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en
 
 ![Optional Text](../master/img/Selección_114.png)
 
+![Optional Text](https://raw.githubusercontent.com/alu0100592306/p4-t3-dom-alu0100592306/master/img/Selección_114.png)
+
+
+https://github.com/ULL-ESIT-DMSI-1920/p4-t3-dom-alu0100592306/blob/master/img/Selecci%C3%B3n_114.png
+
+![Optional Text](img/Selección_114.png)
+
 Hay un objeto "raíz" llamado `window`. Tiene dos roles:
 
 1. Es un objeto global para el código JavaScript.
