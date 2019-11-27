@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Entorno del navegador, especificaciones | p4-t3-dom-alu0100592306</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Entorno del navegador, especificaciones" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/01-Browser-environment-specs/resumen.html" />
+<meta property="og:url" content="http://localhost:4000/01-Browser-environment-specs/resumen.html" />
+<meta property="og:site_name" content="p4-t3-dom-alu0100592306" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/01-Browser-environment-specs/resumen.html","headline":"Entorno del navegador, especificaciones","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=69a79218f2eb99d64efc84771c30ca2655a50e63">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>p4-t3-dom-alu0100592306</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/ULL-ESIT-DMSI-1920/p4-t3-dom-alu0100592306" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2 id="entorno-del-navegador-especificaciones">Entorno del navegador, especificaciones</h2>
+
+<p>El lenguaje JavaScript fue creado para los navegadores web. Desde entonces, ha evolucionado y se ha convertido en un lenguaje con muchos usos y plataformas.</p>
+
+<p>Un entorno host proporciona objetos específicos de la plataforma y funciones adicionales al núcleo del lenguaje. Los navegadores web tienen un medio para controlar las páginas web. Node.JS proporciona características del lado del servidor, y así sucesivamente.</p>
+
+<p>Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en un navegador web:</p>
+
+<p><img src="../master/img/Selección_114.png" alt="Optional Text" /></p>
+
+<p><img src="https://raw.githubusercontent.com/alu0100592306/p4-t3-dom-alu0100592306/master/img/Selección_114.png" alt="Optional Text" /></p>
+
+<p>https://github.com/ULL-ESIT-DMSI-1920/p4-t3-dom-alu0100592306/blob/master/img/Selecci%C3%B3n_114.png</p>
+
+<p><img src="img/Selección_114.png" alt="Optional Text" /></p>
+
+<p>Hay un objeto “raíz” llamado <code class="language-plaintext highlighter-rouge">window</code>. Tiene dos roles:</p>
+
+<ol>
+  <li>Es un objeto global para el código JavaScript.</li>
+  <li>Representa la “ventana del navegador” y proporciona métodos para controlarla.</li>
+</ol>
+
+<h2 id="modelo-de-objetos-del-documento-dom">Modelo de Objetos del Documento (DOM)</h2>
+
+<p>El objeto de <code class="language-plaintext highlighter-rouge">document</code> da acceso al contenido de la página. Con él podemos cambiar o crear cualquier cosa en la página.</p>
+
+<p>Por ejemplo:</p>
+
+<pre><code class="language-h">// cambiar el color de fondo a rojo
+document.body.style.background = "red";
+
+// deshacer el cambio después de 1 segundo
+setTimeout(() =&gt; document.body.style.background = "", 1000);
+</code></pre>
+
+<p>Aquí usamos document.body.style, pero hay muchos, muchos más. Las propiedades y métodos se describen en la especificación:</p>
+
+<p>https://dom.spec.whatwg.org.</p>
+
+<p>La especificación DOM explica la estructura de un documento y proporciona objetos para manipularlo. Hay instrumentos que no son del navegador que también lo utilizan, por lo que DOM no solo es para navegadores.</p>
+
+<p>Por ejemplo, las herramientas del lado del servidor que descargan páginas HTML y las procesan utilizan el DOM. Sin embargo, pueden soportar solo una parte de la especificación.</p>
+
+<p>Las reglas CSS y las hojas de estilo no están estructuradas como HTML. Hay una especificación <a href="https://www.w3.org/TR/cssom-1/">CSSOM</a> separada, que explica cómo se representan como objetos, y cómo leerlos y escribirlos.</p>
+
+<h2 id="bom-parte-de-la-especificación-html">BOM (parte de la especificación HTML)</h2>
+
+<p>El Modelo de Objetos del Navegador (BOM) son objetos adicionales proporcionados por el navegador (entorno host) para trabajar con todo excepto el documento.</p>
+
+<p>Por ejemplo:</p>
+
+<ul>
+  <li>El objeto navegador, proporciona información sobre el navegador y el sistema operativo. Hay muchas propiedades, pero las dos más conocidas son: navigator.userAgent - sobre el navegador actual, y navigator.platform - sobre la plataforma (puede ayudar a diferenciar entre Windows / Linux / Mac, etc.).</li>
+  <li>El objeto ubicación , nos permite leer la URL actual y puede redirigir el navegador a uno nuevo.</li>
+</ul>
+
+<p>Aquí vemos cómo podemos usar el objeto location:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">alert</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span> <span class="c1">// muestra la URL actual</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">confirm</span><span class="p">(</span><span class="dl">"</span><span class="s2">Go to Wikipedia?</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://wikipedia.org</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// redirigir el navegador a otra URL </span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Las funciones alert/confirm/prompt también forman parte de BOM: no están directamente relacionadas con el documento, sino que representan métodos de comunicación puros con el usuario.</p>
+
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/ULL-ESIT-DMSI-1920">ULL-ESIT-DMSI-1920</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

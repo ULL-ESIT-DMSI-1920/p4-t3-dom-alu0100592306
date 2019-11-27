@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>EL árbol DOM | p4-t3-dom-alu0100592306</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="EL árbol DOM" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02-dom-tree/resumen.html" />
+<meta property="og:url" content="http://localhost:4000/02-dom-tree/resumen.html" />
+<meta property="og:site_name" content="p4-t3-dom-alu0100592306" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/02-dom-tree/resumen.html","headline":"EL árbol DOM","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=69a79218f2eb99d64efc84771c30ca2655a50e63">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>p4-t3-dom-alu0100592306</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/ULL-ESIT-DMSI-1920/p4-t3-dom-alu0100592306" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2 id="el-árbol-dom">EL árbol DOM</h2>
+
+<p>La columna vertebral de un documento HTML son las etiquetas.</p>
+
+<p>De acuerdo con el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas se llaman “hijos” del que los contiene.</p>
+
+<p>El texto dentro de una etiqueta también es un objeto.</p>
+
+<p>Todos estos objetos son accesibles usando JavaScript, y podemos usarlos para modificar la página.</p>
+
+<h2 id="un-ejemplo-del-dom">Un ejemplo del DOM</h2>
+
+<p>Comencemos con el siguiente documento simple:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>About elk<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  The truth about elk.
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>El DOM representa el HTML como una estructura de árbol de etiquetas.</p>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_115.png" alt="" /></p>
+
+<p>Las etiquetas se denominan nodos de elementos (o simplemente elementos) y forman un Árbol de Elementos: <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> es La raíz, entonces <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> y <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> son sus hijos, etc.</p>
+
+<p>El texto dentro de los elementos forman nodos de texto, etiquetados como <code class="language-plaintext highlighter-rouge">#text</code>. Un nodo de texto contiene solo una cadena. Puede que no tenga hijos y siempre es una hoja del árbol.</p>
+
+<p>Por ejemplo, la etiqueta <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code> tiene el texto “About elk”.</p>
+
+<p>Tenemos en cuenta los caracteres especiales en los nodos de texto:</p>
+
+<ul>
+  <li>Una nueva línea: ↵(en JavaScript se conoce como \n)</li>
+  <li>Un espacio: ␣</li>
+</ul>
+
+<p>Los espacios y las nuevas líneas son caracteres totalmente válidos, forman nodos de texto y se convierten en parte del DOM. Entonces, por ejemplo, en el ejemplo anterior, la etiqueta <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> contiene algunos espacios antes de title, y ese texto se convierte en un nodo #text(contiene una nueva línea y solo algunos espacios).</p>
+
+<p>Solo hay dos exclusiones de nivel superior:</p>
+
+<ol>
+  <li>Los espacios y las nuevas líneas antes de <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> se ignoran por razones históricas.</li>
+  <li>Si colocamos algo después de <code class="language-plaintext highlighter-rouge">&lt;/body&gt;</code>, entonces eso se mueve automáticamente dentro de <code class="language-plaintext highlighter-rouge">body</code>, al final, ya que la especificación HTML requiere que todo el contenido esté dentro de <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>. Así que no puede haber espacios después de <code class="language-plaintext highlighter-rouge">&lt;/body&gt;</code>.</li>
+</ol>
+
+<p>En los demás casos, todo es más sencillo: si hay espacios (como cualquier carácter) en el documento, entonces se pueden cambiar en nodos de texto en el DOM, y si los eliminamos, entonces no habrá ninguno.</p>
+
+<p>Aquí no hay nodos de texto de solo espacios:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="nt">&lt;html&gt;&lt;head&gt;&lt;title&gt;</span>About elk<span class="nt">&lt;/title&gt;</span>title<span class="nt">&lt;/head&gt;&lt;body&gt;</span>The truth about elk.<span class="nt">&lt;/body&gt;&lt;/html&gt;</span>
+</code></pre></div></div>
+<p><img src="/02-dom-tree/Selecci%C3%B3n_116.png" alt="" /></p>
+
+<h2 id="autocorrección">Autocorrección</h2>
+
+<p>Si el navegador encuentra HTML con formato incorrecto, corrige automáticamente al crear el DOM.</p>
+
+<p>Por ejemplo, la etiqueta superior siempre es <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code>. Incluso si no existe en el documento, existe en el DOM, el navegador lo creará. Lo mismo ocurre con <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>.</p>
+
+<p>Como ejemplo, si el archivo HTML es una sola palabra “Hello”, el navegador incluye &lt;html&gt; y &lt;body&gt;, y agrega el &lt;head&gt; requerido, el DOM será:</p>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_127.png" alt="" /></p>
+
+<p>Al generar el DOM, los navegadores procesan automáticamente los errores en el documento, cierran etiquetas, etc.</p>
+
+<p>Un documento con etiquetas no cerradas:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>Hello
+<span class="nt">&lt;li&gt;</span>Mom
+<span class="nt">&lt;li&gt;</span>and
+<span class="nt">&lt;li&gt;</span>Dad
+</code></pre></div></div>
+
+<p>se convierte en un DOM normal, ya que el navegador lee las etiquetas y restaura las partes faltantes:</p>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_122.png" alt="" /></p>
+
+<h2 id="otros-tipos-de-nodos">Otros tipos de nodos</h2>
+
+<p>Agreguemos más etiquetas y un comentario a la página:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  The truth about elk.
+  <span class="nt">&lt;ol&gt;</span>
+    <span class="nt">&lt;li&gt;</span>An elk is a smart<span class="nt">&lt;/li&gt;</span>
+    <span class="c">&lt;!-- comment --&gt;</span>
+    <span class="nt">&lt;li&gt;</span>...and cunning animal!<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_123.png" alt="" /></p>
+
+<p>Aquí vemos un nuevo tipo de nodo de árbol: el <em>nodo comentario</em>, etiquetado como <code class="language-plaintext highlighter-rouge">#comment</code>, entre dos nodos de texto.</p>
+
+<p>Podemos pensar: ¿por qué se agrega un comentario al DOM? No afecta a la representación visual de ninguna manera. Pero hay una regla: si algo está en el HTML, entonces también debe estar en el árbol DOM.</p>
+
+<p><strong>Todo en el HTML, incluso los comentarios, se convierten en parte del DOM.</strong></p>
+
+<p>Incluso la directiva <code class="language-plaintext highlighter-rouge">&lt;! DOCTYPE ...&gt;</code> al principio de HTML también es un nodo DOM. Está en el árbol DOM justo antes de <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code>. No vamos a tocar ese nodo, ni siquiera lo dibujamos en diagramas por esa razón, pero está ahí.</p>
+
+<p>El objeto <code class="language-plaintext highlighter-rouge">document</code> que representa todo el documento es, formalmente, un nodo DOM también.</p>
+
+<p>Hay 12 tipos de nodos. En la práctica solemos trabajar solo con 4 de ellos:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">document</code> - el “punto de entrada” en el DOM.</li>
+  <li>Nodos de elementos: etiquetas HTML, los bloques de construcción del árbol.</li>
+  <li>Nodos de texto: contienen texto.</li>
+  <li>Comentarios: a veces podemos poner la información allí, no se mostrará, pero JS puede leerla desde el DOM.</li>
+</ol>
+
+<h2 id="velo-por-ti-mismo">Velo por ti mismo</h2>
+
+<p>Para ver la estructura del DOM en tiempo real, prueba <a href="http://software.hixie.ch/utilities/js/live-dom-viewer/">Live DOM Viewer</a>. Simplemente escriba el documento y se mostrará el DOM en un instante.</p>
+
+<p>Otra forma de explorar el DOM es usar las herramientas de desarrollo del navegador. En realidad, eso es lo que usamos cuando desarrollamos.</p>
+
+<p>Para hacerlo, abre la página web <a href="/02-dom-tree/elk.html">elk.html</a>, activa las herramientas de desarrollo del navegador y cambia a la pestaña Elementos.</p>
+
+<p>Debe tener el siguiente aspecto:</p>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_124.png" alt="" /></p>
+
+<p>Puedes ver el DOM, hacer clic en los elementos, ver sus detalles y así sucesivamente.</p>
+
+<p>Al hacer clic en el botón en la esquina superior izquierda, se puede elegir un nodo de la página web usando el ratón e “inspeccionarlo” (desplácese hasta él en la pestaña Elementos). Esto funciona muy bien cuando tenemos una gran página HTML (y el enorme DOM correspondiente) y nos gustaría ver el lugar de un elemento particular en ella.</p>
+
+<p>Otra forma de hacerlo sería simplemente haciendo clic derecho en una página web y seleccionando “Inspeccionar” en el menú contextual.</p>
+
+<p>En la parte derecha de las herramientas puedes observar las siguientes subpestañas:</p>
+
+<ul>
+  <li><strong>Styles</strong>: podemos ver el CSS aplicado al elemento actual, incluidas las reglas utilizadas (gris). Casi todo se puede editar en el lugar, incluidas las dimensiones/márgenes/rellenos.</li>
+  <li><strong>Computed</strong>: para ver el CSS aplicado al elemento por propiedad, para cada propiedad podemos ver su origen (incluida la herencia de CSS y demás).</li>
+  <li>…y así.</li>
+</ul>
+
+<p>La mejor manera de estudiarlos es hacer clic en ellos. La mayoría de los valores son editables en el lugar.</p>
+
+<h2 id="interacción-con-la-consola">Interacción con la consola.</h2>
+
+<p>A medida que exploramos el DOM, es posible que quieras aplicarle JavaScript. Como obtener un nodo y ejecutar algún código para modificarlo, para ver cómo se ve. Aquí hay algunos consejos para moverse entre la pestaña Elementos y la consola.</p>
+
+<ol>
+  <li>Selecciona el primer <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> en la pestaña Elementos.</li>
+  <li>Presiona <code class="language-plaintext highlighter-rouge">Esc</code>: se abrirá la consola justo debajo de la pestaña Elementos.</li>
+</ol>
+
+<p>Ahora el último elemento seleccionado está disponible como <code class="language-plaintext highlighter-rouge">$0</code>, el seleccionado previamente es <code class="language-plaintext highlighter-rouge">$1</code>, etc.</p>
+
+<p>Podemos ejecutar comandos sobre ellos. Por ejemplo, <code class="language-plaintext highlighter-rouge">$0.style.background = 'red'</code> hace que el elemento de la lista seleccionada se vuelva rojo, así:</p>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_125.png" alt="" /></p>
+
+<p>Desde el otro lado, si estamos en la consola y tenemos una variable que hace referencia a un nodo DOM, entonces podemos usar el comando <code class="language-plaintext highlighter-rouge">inspect(node)</code> para verlo en el panel Elementos.</p>
+
+<p>O simplemente podemos mostrarlo en la consola y explorar “en el lugar”, como <code class="language-plaintext highlighter-rouge">document.body</code> en la siguiente imagen:</p>
+
+<p><img src="/02-dom-tree/Selecci%C3%B3n_126.png" alt="" /></p>
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/ULL-ESIT-DMSI-1920">ULL-ESIT-DMSI-1920</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

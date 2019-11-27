@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>DOM children | p4-t3-dom-alu0100592306</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="DOM children" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/03-walking-the-dom/tasks/tasks.html" />
+<meta property="og:url" content="http://localhost:4000/03-walking-the-dom/tasks/tasks.html" />
+<meta property="og:site_name" content="p4-t3-dom-alu0100592306" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/03-walking-the-dom/tasks/tasks.html","headline":"DOM children","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=69a79218f2eb99d64efc84771c30ca2655a50e63">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>p4-t3-dom-alu0100592306</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/ULL-ESIT-DMSI-1920/p4-t3-dom-alu0100592306" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2 id="1-dom-children">1. DOM children</h2>
+
+<p>Mira esta página:</p>
+
+<p><a href="/03-walking-the-dom/tasks/dom_children.html">dom_children.html</a></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div&gt;</span>Users:<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;</span>John<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Pete<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Para cada uno de los siguientes, proporcione al menos una forma de cómo acceder a ellos:</p>
+
+<ul>
+  <li>El <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> nodo DOM?</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>document.body.firstElementChild
+<span class="nt">&lt;div&gt;</span>​Users:​<span class="nt">&lt;/div&gt;</span>​
+document.body.children[0]
+<span class="nt">&lt;div&gt;</span>​Users:​<span class="nt">&lt;/div&gt;</span>​
+//Tomamos el segundo porque el primer nodo es un espacio
+document.body.childNodes[1]
+<span class="nt">&lt;div&gt;</span>​Users:​<span class="nt">&lt;/div&gt;</span>​
+</code></pre></div></div>
+
+<ul>
+  <li>El <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code> nodo DOM?</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>document.body.lastElementChild
+<span class="nt">&lt;ul&gt;</span>​<span class="nt">&lt;li&gt;</span>​John​<span class="nt">&lt;/li&gt;</span>​<span class="nt">&lt;li&gt;</span>​Pete​<span class="nt">&lt;/li&gt;</span>​<span class="nt">&lt;/ul&gt;</span>​
+document.body.children[1]
+<span class="nt">&lt;ul&gt;</span>​<span class="nt">&lt;li&gt;</span>​John​<span class="nt">&lt;/li&gt;</span>​<span class="nt">&lt;li&gt;</span>​Pete​<span class="nt">&lt;/li&gt;</span>​<span class="nt">&lt;/ul&gt;</span>​
+</code></pre></div></div>
+
+<ul>
+  <li>¿El segundo <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code> (con Pete)?</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// primero obtenemos el ultimo elemento hijo de de body (ul) y obtenemos el ultimo elemento hijo de ul.
+document.body.lastElementChild.lastElementChild
+<span class="nt">&lt;li&gt;</span>​Pete​<span class="nt">&lt;/li&gt;</span>​
+</code></pre></div></div>
+
+<h2 id="2-the-sibling-question">2. The sibling question</h2>
+
+<p>Si <code class="language-plaintext highlighter-rouge">elem</code> es un nodo de elemento DOM arbitrario …</p>
+
+<ul>
+  <li>¿Es cierto que elem.lastChild.nextSibling siempre es null?</li>
+</ul>
+
+<p>Si. El elemento elem.lastChild es siempre el último, no tiene nextSibling.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>document.body.lastChild.nextSibling
+null
+</code></pre></div></div>
+
+<ul>
+  <li>¿Es cierto que elem.children[0].previousSibling siempre es null?</li>
+</ul>
+
+<p>No, porque elem.children[0]es el primer hijo entre los elementos . Pero puede haber nodos no elementos antes. Entonces previousSibling puede ser un nodo de texto.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>document.body.children[0].previousSibling
+#text
+</code></pre></div></div>
+<h2 id="3-select-all-diagonal-cells">3. Select all diagonal cells</h2>
+
+<p><a href="/03-walking-the-dom/tasks/diagonal/index.html">diagonal.html</a></p>
+
+<p>Escriba el código para pintar todas las celdas diagonales de la tabla en rojo.</p>
+
+<p>Necesitarás obtener toda la diagonal <code class="language-plaintext highlighter-rouge">&lt;td&gt;</code> del <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code> y pintarlos usando el código:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// td should be the reference to the table cell
+td.style.backgroundColor = 'red';
+</code></pre></div></div>
+
+<p>Usaremos rows y cells propiedades para acceder a las celdas diagonales de la tabla.</p>
+
+<p><a href="/03-walking-the-dom/tasks/diagonal_solucion/index.html">solución diagonal.html</a></p>
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/ULL-ESIT-DMSI-1920">ULL-ESIT-DMSI-1920</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

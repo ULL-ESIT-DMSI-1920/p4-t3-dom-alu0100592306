@@ -1,3 +1,6 @@
+---
+---
+
 ## Entorno del navegador, especificaciones
 
 El lenguaje JavaScript fue creado para los navegadores web. Desde entonces, ha evolucionado y se ha convertido en un lenguaje con muchos usos y plataformas.
