@@ -1,8 +1,4 @@
----
-chuchu: 5
----
-
-# Hello world
+# Document
 
 [Cap. I](01-Browser-environment-specs/resumen.html)
 
@@ -18,8 +14,11 @@ chuchu: 5
 
 [Cap. VII](07-modifying-document/resumen.html)
 
-{{ site.time}}
+[Cap. VIII](08-styles-classes/resumen.html)
 
-{{ page.chuchu }}
+[Cap. IX](09-size-scroll/resumen.html)
 
-{{ site.tutu }}
+[Cap. X](10-size-scroll-window/resumen.html)
+
+[Cap. XI](11-coordinates/resumen.html)
+
