@@ -7,7 +7,7 @@ Todas las operaciones en el DOM comienzan con el `document` objeto. Ese es el pr
 Aquí hay una imagen de enlaces que permiten viajar entre nodos DOM:
 
 
-img 128
+![](Selección_128.png)
 
 
 ## On top: documentElement and body

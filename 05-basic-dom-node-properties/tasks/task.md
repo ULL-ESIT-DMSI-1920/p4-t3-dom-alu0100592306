@@ -4,7 +4,7 @@ importance: 5
 
 # What's in the nodeType?
 
-What does the script show?
+¿Qué muestra el script?
 
 ```html
 <html>
@@ -24,7 +24,7 @@ En el momento de la ejecución de `<script>`, el último nodo DOM es exactamente
 
 Entonces el resultado es `1` (nodo de elemento).
 
-```html run height=60
+```html
 <html>
 
 <body>
@@ -35,17 +35,6 @@ Entonces el resultado es `1` (nodo de elemento).
 
 </html>
 ```
-
-# Count descendants
-
-Hay un árbol estructurado como `ul / li` anidado.
-
-Escriba el código que para cada `<li>` muestra:
-
-1. ¿Cuál es el texto dentro de él (sin el subárbol)
-2. El número de `<li>` anidados: todos los descendientes, incluidos los profundamente anidados.
-
-[demo src="solution"]
 
 # Tag in comment
 
