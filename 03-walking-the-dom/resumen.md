@@ -52,3 +52,7 @@ Entonces, en el ejemplo a continuación, los primeros alertespectáculos null:
 ```
 
 En el DOM, el valor null significa "no existe" o "no existe tal nodo".
+
+## Tareas
+
+[Tarea cap.3](tasks/tasks.html)

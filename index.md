@@ -1,5 +1,7 @@
 # Document
 
+
+
 [Cap. I](01-Browser-environment-specs/resumen.html)
 
 [Cap. II](02-dom-tree/resumen.html)
